@@ -23,6 +23,18 @@ const Menuitems = [
     href: "/",
   },
   {
+    id: uniqueId(),
+    title: "Insights",
+    icon: IconLayoutDashboard,
+    href: "/insights",
+  },
+  {
+    id: uniqueId(),
+    title: "Submit Feedback",
+    icon: IconCopy,
+    href: "/submit",
+  },
+  {
     navlabel: true,
     subheader: "UTILITIES",
   },
@@ -41,6 +53,30 @@ const Menuitems = [
   {
     navlabel: true,
     subheader: "AUTH",
+  },
+  {
+    id: uniqueId(),
+    title: "Stakeholder Login",
+    icon: IconLogin,
+    href: "/stakeholder/login",
+  },
+  {
+    id: uniqueId(),
+    title: "Stakeholder Register",
+    icon: IconUserPlus,
+    href: "/stakeholder/register",
+  },
+  {
+    id: uniqueId(),
+    title: "Admin Login",
+    icon: IconLogin,
+    href: "/admin/login",
+  },
+  {
+    id: uniqueId(),
+    title: "Admin Register",
+    icon: IconUserPlus,
+    href: "/admin/register",
   },
   {
     id: uniqueId(),

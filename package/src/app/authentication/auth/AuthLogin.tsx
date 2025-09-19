@@ -10,18 +10,23 @@ import {
 } from "@mui/material";
 import Link from "next/link";
 
-import CustomTextField from "@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField";
+import ClauseField from "@/app/(DashboardLayout)/components/forms/ClauseField/ClauseField";
+import { useState } from "react";
 
 interface loginType {
   title?: string;
   subtitle?: React.ReactNode;
   subtext?: React.ReactNode;
+  onSubmit?: (username: string, password: string) => void;
 }
 
-const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
+const AuthLogin = ({ title, subtitle, subtext, onSubmit }: loginType) => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  return (
   <>
     {title ? (
-      <Typography fontWeight="700" variant="h2" mb={1}>
+      <Typography fontWeight="700" variant="h2" mb={1} textAlign="center">
         {title}
       </Typography>
     ) : null}
@@ -30,28 +35,10 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
 
     <Stack>
       <Box>
-        <Typography
-          variant="subtitle1"
-          fontWeight={600}
-          component="label"
-          htmlFor="username"
-          mb="5px"
-        >
-          Username
-        </Typography>
-        <CustomTextField variant="outlined" fullWidth />
+        <ClauseField label="Username" name="username" required placeholder="Enter username" value={username} onChange={(e)=>setUsername(e.target.value)} />
       </Box>
       <Box mt="25px">
-        <Typography
-          variant="subtitle1"
-          fontWeight={600}
-          component="label"
-          htmlFor="password"
-          mb="5px"
-        >
-          Password
-        </Typography>
-        <CustomTextField type="password" variant="outlined" fullWidth />
+        <ClauseField label="Password" name="password" type="password" required placeholder="Enter password" value={password} onChange={(e)=>setPassword(e.target.value)} />
       </Box>
       <Stack
         justifyContent="space-between"
@@ -84,15 +71,14 @@ const AuthLogin = ({ title, subtitle, subtext }: loginType) => (
         variant="contained"
         size="large"
         fullWidth
-        component={Link}
-        href="/"
-        type="submit"
+        onClick={() => onSubmit?.(username, password)}
+        type="button"
       >
         Sign In
       </Button>
     </Box>
     {subtitle}
   </>
-);
+)};
 
 export default AuthLogin;

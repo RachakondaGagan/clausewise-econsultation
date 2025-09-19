@@ -2,7 +2,7 @@ import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
 import Link from 'next/link';
 
-import CustomTextField from '@/app/(DashboardLayout)/components/forms/theme-elements/CustomTextField';
+import ClauseField from '@/app/(DashboardLayout)/components/forms/ClauseField/ClauseField';
 import { Stack } from '@mui/system';
 
 interface registerType {
@@ -14,7 +14,7 @@ interface registerType {
 const AuthRegister = ({ title, subtitle, subtext }: registerType) => (
     <>
         {title ? (
-            <Typography fontWeight="700" variant="h2" mb={1}>
+            <Typography fontWeight="700" variant="h2" mb={1} textAlign="center">
                 {title}
             </Typography>
         ) : null}
@@ -23,17 +23,11 @@ const AuthRegister = ({ title, subtitle, subtext }: registerType) => (
 
         <Box>
             <Stack mb={3}>
-                <Typography variant="subtitle1"
-                    fontWeight={600} component="label" htmlFor='name' mb="5px">Name</Typography>
-                <CustomTextField id="name" variant="outlined" fullWidth />
-
-                <Typography variant="subtitle1"
-                    fontWeight={600} component="label" htmlFor='email' mb="5px" mt="25px">Email Address</Typography>
-                <CustomTextField id="email" variant="outlined" fullWidth />
-
-                <Typography variant="subtitle1"
-                    fontWeight={600} component="label" htmlFor='password' mb="5px" mt="25px">Password</Typography>
-                <CustomTextField id="password" variant="outlined" fullWidth />
+                <ClauseField label='Name' name='name' required placeholder='Your full name' value={''} onChange={()=>{}} />
+                <div style={{ height: 16 }} />
+                <ClauseField label='Email Address' name='email' required placeholder='you@example.com' value={''} onChange={()=>{}} />
+                <div style={{ height: 16 }} />
+                <ClauseField label='Password' name='password' type='password' required placeholder='Create a password' value={''} onChange={()=>{}} />
             </Stack>
             <Button color="primary" variant="contained" size="large" fullWidth component={Link} href="/authentication/login">
                 Sign Up

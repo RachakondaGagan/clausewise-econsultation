@@ -62,8 +62,8 @@ const Header = ({toggleMobileSidebar}: ItemType) => {
         </IconButton>
         <Box flexGrow={1} />
         <Stack spacing={1} direction="row" alignItems="center">
-          <Button variant="contained" component={Link} href="/authentication/login"   disableElevation color="primary" >
-            Login
+          <Button variant="contained" component={Link} href="/stakeholder/login" disableElevation color="primary">
+            Stakeholder Login
           </Button>
           <Profile />
         </Stack>
